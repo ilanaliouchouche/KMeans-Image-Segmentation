@@ -6,6 +6,8 @@ from joblib import Parallel, delayed
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from pathlib import Path
+from mpl_toolkits.mplot3d import Axes3D
+import plotly.express as px
 
 #classe Kmeans pour la ségmentation d'image
 
@@ -59,6 +61,27 @@ class MyKMean:
     def set_DataFrame(self):
         img_flat = self.img.reshape((-1, 3))
         self.df_img = pd.DataFrame(img_flat, columns = ['R', 'G', 'B'])
+
+    def display_3D(self, elev=30, azim=30):
+        if self.df_img is None:
+            raise Exception("You must use set_DataFrame before !")
+
+        fig = plt.figure(figsize=(10, 8))
+        ax = fig.add_subplot(111, projection='3d')
+
+        ax.scatter(self.df_img['R'], self.df_img['G'], self.df_img['B'], c='red', marker='o')
+
+        ax.set_xlabel('R')
+        ax.set_ylabel('G')
+        ax.set_zlabel('B')
+        ax.set_title('RGB 3D Scatter Plot')
+        
+        ax.view_init(elev=elev, azim=azim)
+
+        plt.show()
+
+        
+        
     
     #un entrainement de kmeans
     def compute_kmeans(self, k : int):
@@ -205,6 +228,7 @@ class MyKMean:
         plt.ylabel(metric_label)
         plt.title(f'{metric_label} vs K (with File Size(KB))')
         plt.show()
+
 
 
     
