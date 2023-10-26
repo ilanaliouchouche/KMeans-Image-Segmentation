@@ -26,7 +26,7 @@ class MyKMean:
         self.img = img
         self.size_k = size_k
         self.df_img = None
-        self.hopkins = None
+        self.h = None
         self.models = None
         self.all_silhouette = None
         self.all_inertia_w = None
@@ -43,11 +43,11 @@ class MyKMean:
         self.img = croped_img
     
     #critere de validation pour savoir si c'est pertinent de clusterer
-    def set_hobkins(self):
+    def set_hob(self):
         if self.df_img is None:
             raise Exception("You must use set_DataFrame before !")
         hopkins_stat = hopkins(self.df_img, self.df_img.shape[0])
-        self.hopkins = hopkins_stat
+        self.h = hopkins_stat
         
     
     #affiche l'image selon les filtres R G B
