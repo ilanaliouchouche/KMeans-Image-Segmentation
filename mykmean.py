@@ -79,9 +79,6 @@ class MyKMean:
         ax.view_init(elev=elev, azim=azim)
 
         plt.show()
-
-        
-        
     
     #un entrainement de kmeans
     def compute_kmeans(self, k : int):
