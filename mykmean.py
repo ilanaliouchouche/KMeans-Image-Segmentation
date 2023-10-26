@@ -7,7 +7,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from pathlib import Path
 from mpl_toolkits.mplot3d import Axes3D
-from pyclustertend import hopkins
+from pyclustertend import hopkins, ivat
 
 
 #classe Kmeans pour la ségmentation d'image
@@ -48,6 +48,15 @@ class MyKMean:
             raise Exception("You must use set_DataFrame before !")
         hopkins_stat = hopkins(self.df_img, self.df_img.shape[0])
         self.h = hopkins_stat
+    
+    def display_ivat(self):
+        if self.df_img is None:
+            raise Exception("You must use set_DataFrame before !")
+            
+        plt.figure(figsize=(10, 8))
+        ivat(self.df_img.values) 
+        plt.title("iVAT Visualisation")
+        plt.show()
         
     
     #affiche l'image selon les filtres R G B
