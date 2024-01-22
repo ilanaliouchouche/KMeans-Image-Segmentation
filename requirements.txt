@@ -10,7 +10,7 @@ numba==0.54.1
 numpy==1.22.0
 opencv-python==4.8.1.78
 pandas==1.5.3
-Pillow==10.1.0
+Pillow==10.2.0
 pyclustertend==1.8.2
 pyparsing==3.1.1
 pytz==2023.3.post1
