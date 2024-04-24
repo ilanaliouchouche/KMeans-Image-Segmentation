@@ -23,9 +23,3 @@ conda create -n <ENV NAME> python=3.8
 conda activate <ENV NAME>
 pip install -r requirements.txt
 ```
-
-3. In Visual Studio Code (VSCode), choose the right interpreter.
-**Note**: If you are working on a notebook, install ipykernel:
-```
-pip install ipykernel
-```
